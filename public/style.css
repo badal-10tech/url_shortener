@@ -1,0 +1,95 @@
+body {
+  background-color: gray;
+  font-family: "Urbanist", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  gap: 8px;
+  height: 43rem;
+  width: 30rem;
+  border-radius: 20px;
+}
+
+h1 {
+  margin-top: 100px;
+  font-size: xx-large;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 400px;
+}
+
+.input_container input {
+  padding: 12px;
+  border: 1px solid rgba(212, 210, 210, 0.863);
+  border-radius: 10px;
+}
+
+.input_container label {
+  font-size: large;
+}
+
+button {
+  padding: 10px;
+  background-color: rgb(85, 155, 208);
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: medium;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(6, 56, 137);
+}
+
+h2 {
+  background-color: rgb(45, 77, 235);
+  color: white;
+  padding: 2px;
+}
+
+#shorten-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: white;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  max-width: 300px;
+}
+
+li a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+li:hover a {
+  text-decoration: underline;
+}
