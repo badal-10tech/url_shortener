@@ -9,7 +9,7 @@
   <body>
     <div class="container">
       <h1>URL Shortener</h1>
-      <form id="shorten-form">
+      <form action="/" method="post">
         <div class="input_container">
           <label for="url">Enter URL: </label>
           <input type="url" name="url" id="url" required />
@@ -21,41 +21,43 @@
         <button type="submit">Shorten</button>
       </form>
       <h2>Shortened URLs</h2>
-      <ul id="shortened_urls"></ul>
+      <ul>
+        {{shortened_urls}}
+      </ul>
     </div>
     <script>
-      const list = document.getElementById("shortened_urls");
-      document
-        .getElementById("shorten-form")
-        .addEventListener("submit", async (event) => {
-          event.preventDefault();
-          const formData = new FormData(event.target);
-          const url = formData.get("url");
-          const shortCode = formData.get("shortCode");
+      // const list = document.getElementById("shortened_urls");
+      // document
+      //   .getElementById("shorten-form")
+      //   .addEventListener("submit", async (event) => {
+      //   event.preventDefault();
+      //   const formData = new FormData(event.target);
+      //   const url = formData.get("url");
+      //   const shortCode = formData.get("shortCode");
 
-          try {
-            const response = await fetch("/shorten", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ shortCode, url }),
-            });
+      //   try {
+      //     const response = await fetch("/shorten", {
+      //       method: "POST",
+      //       headers: { "Content-Type": "application/json" },
+      //       body: JSON.stringify({ shortCode, url }),
+      //     });
 
-            if (response.ok) {
-              const { shortCode: code } = await response.json();
-              const li = document.createElement("li");
-              const li2 = document.createElement("li");
-              li2.innerHTML = `${url}`;
-              list.appendChild(li2);
-              li.innerHTML = `<a href="/${code}" target="_blank">${window.location.origin}/${code}</a>`;
-              list.appendChild(li);
-            } else {
-              const errorMessage = await response.text();
-              alert(errorMessage);
-            }
-          } catch (error) {
-            console.error(error);
-          }
-        });
+      //     if (response.ok) {
+      //       const { shortCode: code } = await response.json();
+      //       const li = document.createElement("li");
+      //       const li2 = document.createElement("li");
+      //       li2.innerHTML = `${url}`;
+      //       list.appendChild(li2);
+      //       li.innerHTML = `<a href="/${code}" target="_blank">${window.location.origin}/${code}</a>`;
+      //       list.appendChild(li);
+      //     } else {
+      //       const errorMessage = await response.text();
+      //       alert(errorMessage);
+      //     }
+      //   } catch (error) {
+      //     console.error(error);
+      //   }
+      // });
     </script>
   </body>
 </html>

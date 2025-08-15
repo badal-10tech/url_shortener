@@ -2,7 +2,11 @@ import { readFile, writeFile } from "fs/promises";
 import { createServer } from "http";
 import { join } from "path";
 import crypto from "crypto";
+import express from "express";
+
+const app = express();
 const PORT = process.env.PORT || 3000;
+const DATA_FILE = join("data", "links.json");
 const serverFile = async (res, filePath, contentType) => {
   try {
     const data = await readFile(filePath);
@@ -13,8 +17,6 @@ const serverFile = async (res, filePath, contentType) => {
     res.end("404 Page not found");
   }
 };
-
-const DATA_FILE = join("data", "links.json");
 
 const loadLinks = async () => {
   try {
