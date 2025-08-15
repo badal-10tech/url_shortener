@@ -2,7 +2,7 @@ import { readFile, writeFile } from "fs/promises";
 import { createServer } from "http";
 import { join } from "path";
 import crypto from "crypto";
-
+const PORT = process.env.PORT || 3000;
 const serverFile = async (res, filePath, contentType) => {
   try {
     const data = await readFile(filePath);
@@ -73,7 +73,6 @@ const server = createServer(async (req, res) => {
   }
 });
 
-const PORT = 3000;
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
