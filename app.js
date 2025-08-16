@@ -46,7 +46,7 @@ const saveLinks = async (links) =>
 // Homepage
 app.get("/", async (req, res) => {
   try {
-    const file = await fs.readFile(path.join("view", "index.html"), "utf-8");
+    const file = await fs.readFile("index.html", "utf-8");
     const links = await loadLinks();
 
     const content = file.replaceAll(
